@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const Login());
@@ -131,22 +132,33 @@ class _LoginState extends State<Login> {
               Column(children: [
                 Container(
                   margin: const EdgeInsets.only(top: 30),
-                  child: const Text('Entrar como invitado',
+                  child: const TextButton(
+                    onPressed: null,
+                    child: Text(
+                      'Entrar como invitado',
                       textAlign: TextAlign.justify,
                       style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xfffc1460))),
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xfffc1460),
+                      ),
+                    ),
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 30),
-                  child: const Text('Entrar como vendedor',
+                  child: const TextButton(
+                    onPressed: null,
+                    child: Text(
+                      'Entrar como Vendedor',
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
                         color: Color(0xff76aa75),
-                      )),
+                      ),
+                    ),
+                  ),
                 ),
                 Container(
                   width: 300,
@@ -162,13 +174,18 @@ class _LoginState extends State<Login> {
                             color: Colors.black,
                           )),
                       Text('  '),
-                      Text('Inicia sesion',
+                      TextButton(
+                        onPressed: null,
+                        child: Text(
+                          'Inicia sesion',
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                             color: Colors.red,
-                          )),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 )
