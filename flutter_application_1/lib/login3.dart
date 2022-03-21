@@ -14,17 +14,19 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           backgroundColor: const Color(0xffffffff),
           body: Column(
             children: [
+              const Padding(padding:  EdgeInsets.only(top: 60)),
               Center(
                 child: Container(
                   height: 250,
-                  padding: const EdgeInsets.only(top: 50, right: 24, left: 24),
+                  padding: const EdgeInsets.only(top: 60, right: 24, left: 24),
                   child: Image.asset(
-                    'assets/images/flutter.png',
-                    height: 300,
+                    'assets/images/splash.png',
+                    height: 500,
                   ),
                 ),
               ),
@@ -103,7 +105,9 @@ class _LoginState extends State<Login> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'registro');
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
@@ -130,33 +134,28 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Column(children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const TextButton(
-                    onPressed: null,
-                    child: Text(
-                      'Entrar como invitado',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xfffc1460),
-                      ),
+                const Padding(padding:  EdgeInsets.only(top: 60)),
+                const TextButton(
+                  onPressed: null,
+                  child: Text(
+                    'Entrar como invitado',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xfffc1460),
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const TextButton(
-                    onPressed: null,
-                    child: Text(
-                      'Entrar como Vendedor',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff76aa75),
-                      ),
+                const TextButton(
+                  onPressed: null,
+                  child: Text(
+                    'Entrar como Vendedor',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff76aa75),
                     ),
                   ),
                 ),
@@ -165,18 +164,20 @@ class _LoginState extends State<Login> {
                   margin: const EdgeInsets.only(top: 30, left: 100),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
-                      Text('¿Ya tienes una cuenta?',
+                    children:  [
+                      const Text('¿Ya tienes una cuenta?',
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           )),
-                      Text('  '),
+                      const Text('  '),
                       TextButton(
-                        onPressed: null,
-                        child: Text(
+                        onPressed: (){
+                          Navigator.pushNamed(context, 'login');
+                        },
+                        child: const Text(
                           'Inicia sesion',
                           textAlign: TextAlign.justify,
                           style: TextStyle(
