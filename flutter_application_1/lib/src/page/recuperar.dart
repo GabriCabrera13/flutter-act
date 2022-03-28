@@ -38,17 +38,17 @@ class _RecuperarPageState extends State<RecuperarPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.only(bottom: 50, top: 40),
+                margin: const EdgeInsets.only(bottom: 50, top: 40,right: 60),
                 child: const Text(
                   'Ingresa tu email para recuperar tu contraseña',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, color: ColorsSelect.txtBoSubHe),
+                  style: TextStyle(fontSize: 18, color: ColorsSelect.txtBoSubHe,fontWeight: FontWeight.bold),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(right: 250),
                 child: const Text(
-                  'Correo Electronico',
+                  'Correo electronico',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -69,10 +69,10 @@ class _RecuperarPageState extends State<RecuperarPage> {
                 ),
               ),
               Container(
-              padding: const EdgeInsets.only(left: 30, top: 15),
+              padding: const EdgeInsets.only(left:10, top: 15),
               margin: const EdgeInsets.only(right: 75),
               child: const Text(
-                  'Ingrese su correo electronico registrado y le enviaremos un correo electronico que contiene un enlace para restablecer su contraseña',
+                  'Ingrese su correo electronico registrado y le \nenviaremos un correo electronico que contiene un \nenlace para restablecer su contraseña',
                   style:
                       TextStyle(fontSize: 14, color: ColorsSelect.txtBoSubHe)),
             ),
@@ -84,7 +84,7 @@ class _RecuperarPageState extends State<RecuperarPage> {
                   height: 50,
                   child: ElevatedButton(
                       child: const Text(
-                        'Iniciar sesion',
+                        'Enviar solicitud',
                         style: TextStyle(fontSize: 18),
                       ),
                       onPressed: () {},

@@ -121,7 +121,7 @@ class _SplashScreanCanvas extends CustomPainter {
     path2.lineTo(0, size.height);
 
     
-    path2.quadraticBezierTo(size.width*0.30, size.height*0.70, size.width, size.height);
+    path2.quadraticBezierTo(size.width*0.70, size.height*0.70, size.width, size.height);
 
     path2.lineTo(size.width, size.height);
     path2.lineTo(0, size.height);

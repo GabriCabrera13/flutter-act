@@ -39,14 +39,14 @@ class _RegistroState extends State<Registro> {
         height: size.height,
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, 
+            mainAxisAlignment: MainAxisAlignment.start, 
             children: [
             Container(
-              margin: const EdgeInsets.only(bottom: 50, top: 40),
+              margin: const EdgeInsets.only(bottom: 50, top: 40,right: 70),
               child: const Text(
                 'Crea una cuenta para empezar a usar la app ',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, color: ColorsSelect.txtBoSubHe),
+                style: TextStyle(fontSize: 18, color: ColorsSelect.txtBoSubHe,fontWeight: FontWeight.bold),
               ),
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
@@ -219,7 +219,7 @@ class _RegistroState extends State<Registro> {
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           )),
-                      const Text('  '),
+     
                       TextButton(
                         onPressed: (){
                           Navigator.pushNamed(context, 'login');

@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: ColorsSelect.paginatorNext),
           onPressed: () => Navigator.of(context).pop(),
@@ -37,20 +38,20 @@ class _LoginPageState extends State<LoginPage> {
         height: size.height,
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.only(bottom: 50, top: 40),
+                margin: const EdgeInsets.only(bottom: 50, top: 40, right: 75),
                 child: const Text(
                   'Inicia sesion con tu cuenta para continuar',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, color: ColorsSelect.txtBoSubHe),
+                  style: TextStyle(fontSize: 18, color: ColorsSelect.txtBoSubHe,fontWeight: FontWeight.bold),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(right: 250),
                 child: const Text(
-                  'Correo Electronico',
+                  'Correo electronico',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                 ),
@@ -104,25 +105,28 @@ class _LoginPageState extends State<LoginPage> {
                   onChanged: (text) {},
                 ),
               ),
-             Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children:  [
-                      TextButton(
-                        onPressed: (){
-                          Navigator.pushNamed(context, 'recuperar');
-                        },
-                        child: const Text(
-                          '¿Has olvidado tu contraseña?',
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: ColorsSelect.paginatorNext,
+             Padding(
+               padding: EdgeInsets.only(right: 10),
+               child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children:  [
+                        TextButton(
+                          onPressed: (){
+                            Navigator.pushNamed(context, 'recuperar');
+                          },
+                          child: const Text(
+                            '¿Has olvidado tu contraseña?',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: ColorsSelect.paginatorNext,
+                            ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
+                        )
+                      ],
+                    ),
+             ),
                   const Padding(padding: EdgeInsets.only(top:160)),
                   Container(
                 padding: const EdgeInsets.only(top: 60),
@@ -154,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           )),
-                      const Text('  '),
+                      
                       TextButton(
                         onPressed: (){
                           Navigator.pushNamed(context, 'registro');

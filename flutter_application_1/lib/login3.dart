@@ -134,31 +134,45 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Column(children: [
-                const Padding(padding:  EdgeInsets.only(top: 60)),
-                const TextButton(
-                  onPressed: null,
-                  child: Text(
-                    'Entrar como invitado',
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xfffc1460),
+                const Padding(padding:  EdgeInsets.only(top: 30)),
+                Container(
+              margin: const EdgeInsets.only(top:10),
+              width: 300,
+              child: Column(
+                children: [
+                  // Invitado
+                  SizedBox(
+                    height: 30,
+                    child: TextButton(
+                      onPressed: (){},
+                      child: const Text(
+                        'Entrar como invitado',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xfffc1460)
+                        ),
+                      )
                     ),
                   ),
-                ),
-                const TextButton(
-                  onPressed: null,
-                  child: Text(
-                    'Entrar como Vendedor',
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff76aa75),
+                  // Vendedor
+                  SizedBox(
+                    height: 30,
+                    child: TextButton(
+                      onPressed: (){}, 
+                      child: const Text(
+                        'Entrar como vendedor',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xf76aa757)
+                        ),
+                      )
                     ),
-                  ),
-                ),
+                  )
+                ],
+              ),
+            ),
                 Container(
                   width: 300,
                   margin: const EdgeInsets.only(top: 30, left: 100),
@@ -172,7 +186,6 @@ class _LoginState extends State<Login> {
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           )),
-                      const Text('  '),
                       TextButton(
                         onPressed: (){
                           Navigator.pushNamed(context, 'login');
