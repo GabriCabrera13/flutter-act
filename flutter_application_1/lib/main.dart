@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/page/home_header.dart';
+import 'package:flutter_application_1/src/page/home_page.dart';
 import 'package:flutter_application_1/src/page/login.dart';
 import 'package:flutter_application_1/src/page/recuperar.dart';
 import 'package:flutter_application_1/src/page/registro.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       'registro':(BuildContext context) =>  const Registro(),
       'login':(BuildContext context) =>  const LoginPage(),
       'recuperar':(BuildContext context) =>  const RecuperarPage(),
+      'home2':(BuildContext context) =>  const Home(),
       },
     );
   }

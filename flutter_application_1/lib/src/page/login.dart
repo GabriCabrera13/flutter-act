@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/splash/styles/colors/colors_views.dart';
-
+import 'package:flutter_application_1/src/models/login_service.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({ Key? key }) : super(key: key);
 
@@ -11,6 +11,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool mostrar = true;
   bool ver = false;
+  String? email = '';
+  String? password = '';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -68,7 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                         borderSide: BorderSide(color: Colors.black, width: 1)),
                     hintText: 'Direccion de correo',
                   ),
-                  onChanged: (text) {},
+                  onChanged: (text) {
+                    email= text;                    
+                  },
                 ),
               ),
               const Padding(padding: EdgeInsets.only(top: 10)),
@@ -102,7 +106,9 @@ class _LoginPageState extends State<LoginPage> {
                         borderSide: BorderSide(color: Colors.black, width: 1)),
                     hintText: 'Contraseña',
                   ),
-                  onChanged: (text) {},
+                  onChanged: (text) {
+                    password = text;
+                  },
                 ),
               ),
              Padding(
@@ -138,7 +144,31 @@ class _LoginPageState extends State<LoginPage> {
                         'Iniciar sesion',
                         style: TextStyle(fontSize: 18),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (email == '' && password == '') {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              duration: Duration(milliseconds: 1000),
+                              content: Text('Rellene los campos'),
+                            ),
+                          );
+                        } else {
+                          login(email!, password!).then((value) {
+                                print(value);
+                                if (value['status'] == 'success') {
+                                  Navigator.pushReplacementNamed(
+                                      context, 'home2');
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      duration: Duration(milliseconds: 1000),
+                                      content: Text('Contraseña incorrecta'),
+                                    ),
+                                  );
+                                }
+                              });
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: ColorsSelect.splash,
                           shape: RoundedRectangleBorder(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/splash/styles/colors/colors_views.dart';
+import 'package:flutter_application_1/src/models/register_service.dart';
 
 class Registro extends StatefulWidget {
   const Registro({Key? key}) : super(key: key);
@@ -12,6 +13,9 @@ class Registro extends StatefulWidget {
 class _RegistroState extends State<Registro> {
   bool mostrar = true;
   bool ver = false;
+  String? fullname = '';
+  String? email = '';
+  String? password = '';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -70,7 +74,9 @@ class _RegistroState extends State<Registro> {
                       borderSide: BorderSide(color: Colors.black, width: 1)),
                   hintText: 'Nombre completo',
                 ),
-                onChanged: (text) {},
+                onChanged: (text) {
+                    fullname = text;
+                  },
               ),
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
@@ -94,7 +100,9 @@ class _RegistroState extends State<Registro> {
                       borderSide: BorderSide(color: Colors.black, width: 1)),
                   hintText: 'Direccion de correo',
                 ),
-                onChanged: (text) {},
+                onChanged: (text) {
+                    email = text;
+                  },
               ),
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
@@ -128,7 +136,9 @@ class _RegistroState extends State<Registro> {
                       borderSide: BorderSide(color: Colors.black, width: 1)),
                   hintText: 'Contraseña',
                 ),
-                onChanged: (text) {},
+                 onChanged: (text) {
+                    password = text;
+                  },
               ),
             ),
             Container(
@@ -199,7 +209,35 @@ class _RegistroState extends State<Registro> {
                         'Crear Cuenta',
                         style: TextStyle(fontSize: 18),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (fullname == '' && email == '' && password == '') {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              duration: Duration(milliseconds: 1000),
+                              content: Text('Rellene los campos'),
+                            ),
+                          );
+                        } else {
+                          register(fullname!, email!, password!).then((value) {
+                            print(value);
+                            if (value) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  duration: Duration(milliseconds: 1000),
+                                  content: Text('Usuario creado'),
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  duration: Duration(milliseconds: 1000),
+                                  content: Text('No se ha podido registrar'),
+                                ),
+                              );
+                            }
+                          });
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: ColorsSelect.splash,
                           shape: RoundedRectangleBorder(
